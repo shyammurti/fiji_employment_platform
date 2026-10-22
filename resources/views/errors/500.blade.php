@@ -1,0 +1,4 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Something went wrong | Fiji Employment Hub</title>
+<style>body{margin:0;min-height:100vh;display:grid;place-items:center;font-family:system-ui,sans-serif;background:#f4f7f8;color:#1e2933;padding:1rem}@media(prefers-color-scheme:dark){body{background:#0b131a;color:#e3eaf0}}main{max-width:32rem;text-align:center}h1{font-size:1.75rem;margin:.5rem 0}a{display:inline-block;margin-top:1.5rem;padding:.7rem 1.2rem;border-radius:.75rem;background:#0f6f6f;color:#fff;text-decoration:none;font-weight:600}</style></head>
+<body><main><p>Error 500</p><h1>Something went wrong</h1><p>The problem has been logged. Please try again in a moment.</p><a href="/">Go to home page</a></main></body></html>

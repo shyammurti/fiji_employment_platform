@@ -1,0 +1,29 @@
+{
+  "node_modules/@fontsource-variable/figtree/files/figtree-latin-ext-wght-normal.woff2": {
+    "file": "assets/figtree-latin-ext-wght-normal-DCwSJGxG.woff2",
+    "src": "node_modules/@fontsource-variable/figtree/files/figtree-latin-ext-wght-normal.woff2"
+  },
+  "node_modules/@fontsource-variable/figtree/files/figtree-latin-wght-normal.woff2": {
+    "file": "assets/figtree-latin-wght-normal-D_ZTVpCC.woff2",
+    "src": "node_modules/@fontsource-variable/figtree/files/figtree-latin-wght-normal.woff2"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-BkLECy6t.css",
+    "name": "app",
+    "names": [
+      "app.css"
+    ],
+    "src": "resources/css/app.css",
+    "isEntry": true,
+    "assets": [
+      "assets/figtree-latin-ext-wght-normal-DCwSJGxG.woff2",
+      "assets/figtree-latin-wght-normal-D_ZTVpCC.woff2"
+    ]
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-CIQiNmXx.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  }
+}
