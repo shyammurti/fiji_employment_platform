@@ -1,4 +1,4 @@
-<x-app-layout title="Browse jobs">
+<x-app-layout title="Browse jobs" :breadcrumbs="[['Browse jobs']]" help="jobs">
     <x-slot name="header">
         <h1 class="page-title">Find your next opportunity</h1>
         <p class="page-intro">Every vacancy here has been reviewed by an administrator and comes from an approved employer.</p>
@@ -6,7 +6,7 @@
 
     <form method="GET" role="search" class="card mb-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <div class="sm:col-span-2">
-            <label for="filter-q" class="label">Keyword</label>
+            <label for="filter-q" class="label">Keyword <x-tip align="start">Searches job titles, company names and descriptions. Combine it with a type or region to narrow the results.</x-tip></label>
             <input id="filter-q" type="search" name="q" value="{{ $filters['q'] ?? '' }}" placeholder="Title, company or keyword…" autocomplete="off" class="input">
         </div>
         <div>
@@ -38,7 +38,7 @@
     <div class="mb-5 flex flex-wrap items-center justify-between gap-3">
         <p class="text-sm font-semibold text-slate-700" role="status"><span class="tabular-nums">{{ $jobs->total() }}</span> {{ Str::plural('vacancy', $jobs->total()) }} found</p>
         @if (auth()->user()?->isJobseeker())
-            <p class="text-xs text-slate-600">Match scores compare your saved skills with each vacancy's required skills.</p>
+            <p class="flex items-center gap-1 text-xs text-slate-600">Match scores compare your saved skills with each vacancy's required skills. <x-tip align="end" label="How skill match is calculated">The percentage of a job's required skills that are on your profile. 3 of 4 required skills = 75%. Add missing skills on your profile to raise your score. It is guidance only, not a hiring decision.</x-tip></p>
         @endif
     </div>
 

@@ -1,4 +1,4 @@
-<x-app-layout :title="$job->exists ? 'Edit listing' : 'Post a job'">
+<x-app-layout :title="$job->exists ? 'Edit listing' : 'Post a job'" :breadcrumbs="['dashboard', ['My listings', route('employer.jobs.index')], [$job->exists ? 'Edit listing' : 'Post a job']]" :help="$job->exists ? 'faq-how-do-i-correct-a-vacancy' : 'faq-how-do-i-publish-a-vacancy'">
     <x-slot name="header">
         <h1 class="page-title">{{ $job->exists ? 'Edit listing' : 'Post a job' }}</h1><p class="page-intro">Listings are reviewed by an administrator before they appear on the public job board.</p>
     </x-slot>
@@ -49,19 +49,19 @@
                         <x-field-error name="type" />
             </div>
             <div>
-                <label for="salary_range" class="label">Salary range</label>
+                <label for="salary_range" class="label">Salary range <x-tip align="start">Include the currency, an amount and the pay period, for example FJD 12,000 - 15,000 per year or FJD 6.00 per hour.</x-tip></label>
                 <input id="salary_range" type="text" name="salary_range" value="{{ old('salary_range', $job->salary_range) }}" required maxlength="100" placeholder="e.g. FJD 10,000 - 13,000 per year…" class="input" @error('salary_range') aria-invalid="true" aria-describedby="salary_range-error" @enderror>
                 <p class="hint">Include the currency and pay period.</p>
                 <x-field-error name="salary_range" />
             </div>
             <div class="grid grid-cols-2 gap-4">
                 <div>
-                    <label for="vacancy-count" class="label">Positions</label>
+                    <label for="vacancy-count" class="label">Positions <x-tip align="start">How many people you will hire for this vacancy. Complete recruitment becomes available once you have recorded at least one hire.</x-tip></label>
                     <input id="vacancy-count" type="number" name="vacancy_count" min="1" max="1000" inputmode="numeric" value="{{ old('vacancy_count', $job->vacancy_count ?? 1) }}" required class="input">
                     <x-field-error name="vacancy_count" />
                 </div>
                 <div>
-                    <label for="closing_date" class="label">Closing date</label>
+                    <label for="closing_date" class="label">Closing date <x-tip align="end">The last day applications are accepted (Fiji time). After this date the listing leaves the job board automatically. It must be within the next 12 months.</x-tip></label>
                     <input id="closing_date" type="date" name="closing_date" data-future value="{{ old('closing_date', $job->closing_date?->format('Y-m-d')) }}" min="{{ now('Pacific/Fiji')->addDay()->format('Y-m-d') }}" max="{{ now('Pacific/Fiji')->addYear()->format('Y-m-d') }}" required class="input" @error('closing_date') aria-invalid="true" aria-describedby="closing_date-error" @enderror>
                     <x-field-error name="closing_date" />
                 </div>
@@ -89,7 +89,7 @@
                 <x-field-error name="required_degree" />
             </div>
             <div>
-                <label for="required_skills" class="label">Required skills</label>
+                <label for="required_skills" class="label">Required skills <x-tip align="end">Separate skills with commas. Applicants are scored by how many of these skills are on their profile, and matching jobseekers are notified when the listing is approved.</x-tip></label>
                 <input id="required_skills" type="text" name="required_skills" value="{{ old('required_skills', implode(', ', $job->requiredSkillsList())) }}" required placeholder="e.g. Customer Service, Microsoft Excel…" class="input" @error('required_skills') aria-invalid="true" aria-describedby="required_skills-error" @enderror>
                 <p class="hint">Separate with commas. Use platform skill names where possible, such as {{ implode(', ', array_slice(\App\Support\SkillCatalog::all(), 0, 4)) }}.</p>
                 <x-field-error name="required_skills" />
@@ -97,7 +97,7 @@
         </div>
 
         <div>
-            <label for="job-document" class="label">Position description document</label>
+            <label for="job-document" class="label">Position description document <x-tip align="start">Required for administrator review. Applicants can download it once the listing is approved. PDF, DOC or DOCX up to 5 MB.</x-tip></label>
             @if ($job->document_path)
                 <p class="mt-1 text-sm text-slate-600">On file: <a href="{{ route('jobs.document', $job) }}" class="link">{{ $job->document_name }}</a>. Upload a new file only to replace it.</p>
             @endif

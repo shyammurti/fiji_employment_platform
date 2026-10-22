@@ -1,4 +1,4 @@
-<x-app-layout title="Career Hub">
+<x-app-layout title="Career Hub" :breadcrumbs="['dashboard', ['Career Hub']]" help="career">
 <x-slot name="header">
     <h1 class="page-title">Career Hub</h1>
     <p class="page-intro">Practise interviews, build your CV and get career guidance. When you need a person, book an industry mentor.</p>
@@ -28,7 +28,7 @@
                         <span class="block truncate text-sm font-medium" :class="chat.id === activeId ? 'text-ocean-800' : 'text-slate-700'" x-text="chat.title"></span>
                         <span class="block text-xs text-slate-500" x-text="relative(chat.last_message_at)"></span>
                     </button>
-                    <button type="button" class="mr-1 rounded-lg p-1.5 text-slate-500 opacity-100 transition hover:bg-slate-100 hover:text-red-700 lg:opacity-0 lg:group-hover:opacity-100 lg:focus:opacity-100" @click="deleteChat(chat)" :aria-label="'Delete chat: ' + chat.title">
+                    <button type="button" class="mr-1 rounded-lg p-1.5 text-slate-500 opacity-100 transition hover:bg-slate-100 hover:text-red-700 lg:opacity-0 lg:group-hover:opacity-100 lg:focus:opacity-100" @click="deleteChat(chat)" :aria-label="'Delete chat: ' + chat.title" title="Delete chat">
                         <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M8 2a1 1 0 0 0-.9.6L6.4 4H4a1 1 0 0 0 0 2h.1l.8 10.1A2 2 0 0 0 6.9 18h6.2a2 2 0 0 0 2-1.9L15.9 6h.1a1 1 0 1 0 0-2h-2.4l-.7-1.4A1 1 0 0 0 12 2H8Zm0 6a1 1 0 0 1 2 0v6a1 1 0 1 1-2 0V8Zm4-1a1 1 0 0 0-1 1v6a1 1 0 1 0 2 0V8a1 1 0 0 0-1-1Z" clip-rule="evenodd"/></svg>
                     </button>
                 </li>
@@ -112,14 +112,14 @@
                 <textarea id="chat-message" x-ref="input" x-model="input" rows="1" maxlength="4000" autocomplete="off"
                           @keydown.enter="if (!$event.shiftKey) { $event.preventDefault(); send(); }" @input="grow()"
                           class="input !mt-0 max-h-40 min-w-0 flex-1 resize-none" placeholder="Ask about interviews, your CV or your career…"></textarea>
-                <button type="submit" class="btn-primary" :disabled="busy || !input.trim()" aria-label="Send message">
+                <button type="submit" class="btn-primary" :disabled="busy || !input.trim()" aria-label="Send message" title="Send (Enter)">
                     <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M3.1 2.3a.75.75 0 0 0-1 .9l1.9 6.05h6.25a.75.75 0 0 1 0 1.5H4l-1.9 6.05a.75.75 0 0 0 1 .9l15-7.25a.75.75 0 0 0 0-1.35l-15-7.25Z"/></svg>
                 </button>
             </form>
             <div class="mt-3 flex flex-wrap items-center gap-2">
                 <button type="button" class="chip-action" :disabled="busy" @click="buildCv()" title="Builds a CV from your profile. Anything typed in the box is added as experience.">Build my CV</button>
-                <button type="button" class="chip-action" :disabled="busy" @click="send('Give me an interview question for the kind of role I am looking for.')">Practise an interview</button>
-                <button type="button" class="chip-action" :disabled="busy" @click="send('I would like to talk to a mentor.')">Talk to a mentor</button>
+                <button type="button" class="chip-action" :disabled="busy" @click="send('Give me an interview question for the kind of role I am looking for.')" title="The assistant asks one interview question at a time and gives feedback on your answer">Practise an interview</button>
+                <button type="button" class="chip-action" :disabled="busy" @click="send('I would like to talk to a mentor.')" title="Lists the mentors taking requests so you can book a one-hour session">Talk to a mentor</button>
                 <span class="ml-auto hidden text-xs text-slate-500 sm:inline">Enter to send, Shift+Enter for a new line</span>
             </div>
             <p class="hint mt-3">General guidance only. Check suggestions, keep CV claims accurate, and book a mentor for decisions that matter.</p>
@@ -159,7 +159,7 @@
                         <input id="topic-{{ $mentor->id }}" name="topic" required minlength="3" maxlength="255" value="{{ old('mentor_id') == $mentor->id ? old('topic') : '' }}" class="input" placeholder="e.g. Preparing for a hotel interview…">
                     </div>
                     <div>
-                        <label for="time-{{ $mentor->id }}" class="label">Session time (Fiji time)</label>
+                        <label for="time-{{ $mentor->id }}" class="label">Session time (Fiji time) <x-tip align="start">Sessions last one hour. Choose a time at least an hour from now and within 90 days. You cannot book a time that overlaps another of your sessions or interviews, or one your mentor already has.</x-tip></label>
                         <input id="time-{{ $mentor->id }}" type="datetime-local" name="scheduled_at" required data-future step="900" class="input" aria-describedby="time-hint-{{ $mentor->id }}">
                         <p id="time-hint-{{ $mentor->id }}" class="hint">At least one hour from now and within the next 90 days.</p>
                     </div>
@@ -201,7 +201,7 @@
                         <form method="POST" action="{{ route('mentorship.updateStatus', $session) }}">@csrf @method('PATCH')<input type="hidden" name="status" value="completed"><button type="submit" class="btn-primary">Mark completed</button></form>
                     @endif
                     @if (in_array($session->status, ['pending', 'confirmed']) && $session->scheduled_at->isFuture())
-                        <form method="POST" action="{{ route('mentorship.updateStatus', $session) }}" onsubmit="return confirm('Cancel this mentorship session?');">@csrf @method('PATCH')<input type="hidden" name="status" value="cancelled"><button type="submit" class="btn-secondary">Cancel session</button></form>
+                        <form method="POST" action="{{ route('mentorship.updateStatus', $session) }}" data-confirm="Cancel this mentorship session? The other person will be notified." data-confirm-title="Cancel session?" data-confirm-button="Cancel session" data-confirm-tone="danger">@csrf @method('PATCH')<input type="hidden" name="status" value="cancelled"><button type="submit" class="btn-secondary">Cancel session</button></form>
                     @endif
                 </div>
                 @if ($session->rating)
@@ -214,7 +214,7 @@
                         @csrf
                         <input type="hidden" name="mentorship_session_id" value="{{ $session->id }}">
                         <div>
-                            <label for="rating-{{ $session->id }}" class="label">Rating</label>
+                            <label for="rating-{{ $session->id }}" class="label">Rating <x-tip align="start">5 is excellent and 1 is poor. Your rating is added to the mentor's average, which other jobseekers see.</x-tip></label>
                             <select id="rating-{{ $session->id }}" name="rating" required class="input">@for ($i = 5; $i >= 1; $i--)<option value="{{ $i }}">{{ $i }} / 5</option>@endfor</select>
                         </div>
                         <div class="sm:col-span-3">
@@ -305,7 +305,7 @@ function careerHub(initial) {
             }
         },
         async deleteChat(chat) {
-            if (!confirm('Delete "' + chat.title + '"? Its messages will be removed.')) return;
+            if (!(await window.confirmDialog('"' + chat.title + '" and all its messages will be permanently deleted.', {title: 'Delete this chat?', button: 'Delete chat', tone: 'danger'}))) return;
             const response = await fetch(routes.show + '/' + chat.id, {method: 'DELETE', headers: headers()});
             if (response.ok || response.status === 404) {
                 this.conversations = this.conversations.filter(c => c.id !== chat.id);

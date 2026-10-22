@@ -69,6 +69,7 @@
     .btn-primary { @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold whitespace-nowrap transition-[background-color,border-color,color,transform] active:scale-[0.98] disabled:cursor-wait disabled:opacity-60 bg-brand text-white shadow-sm hover:bg-brand-strong; }
     .btn-secondary { @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold whitespace-nowrap transition-[background-color,border-color,color,transform] active:scale-[0.98] disabled:cursor-wait disabled:opacity-60 border border-slate-300 bg-surface text-charcoal hover:border-ocean-600 hover:bg-ocean-50; }
     .btn-danger { @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold whitespace-nowrap transition-[background-color,border-color,color,transform] active:scale-[0.98] disabled:cursor-wait disabled:opacity-60 bg-danger-600 text-white hover:bg-danger-700; }
+    .btn-danger-soft { @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold whitespace-nowrap transition-[background-color,border-color,color,transform] active:scale-[0.98] disabled:cursor-wait disabled:opacity-60 border border-red-200 bg-surface text-red-700 hover:border-red-300 hover:bg-red-50; }
     .btn-sm { @apply min-h-9 px-3 py-1.5 text-xs; }
     .link { @apply font-semibold text-ocean-700 underline-offset-4 hover:text-fiji-900 hover:underline; }
 
@@ -233,3 +234,19 @@ html.dark :is(input, select, textarea):not([type="checkbox"], [type="radio"], [t
     background-color: var(--color-surface);
     color: var(--color-charcoal);
 }
+
+/* ---- Tooltips (<x-tip>) ---- */
+@layer components {
+    .tip-trigger { @apply inline-flex h-5 w-5 items-center justify-center rounded-full text-slate-500 transition-colors hover:text-ocean-700 focus-visible:text-ocean-700; }
+    .tip-bubble { @apply pointer-events-none fixed z-50 w-64 max-w-[80vw] rounded-xl bg-slate-900 px-3 py-2 text-left text-xs font-normal normal-case leading-5 tracking-normal text-slate-50 shadow-pop; }
+}
+
+/* ---- Confirmation dialog (data-confirm forms / window.confirmDialog) ---- */
+.confirm-dialog { margin: auto; /* Tailwind resets margins; restore the browser centring */ width: min(28rem, calc(100vw - 2rem)); border: 1px solid var(--color-slate-200); border-radius: 1.25rem; padding: 0; background: var(--color-surface); color: var(--color-charcoal); box-shadow: var(--shadow-pop); }
+.confirm-dialog::backdrop { background: rgb(11 34 51 / 0.55); backdrop-filter: blur(2px); }
+.confirm-dialog[open] { animation: dialog-in .14s ease-out; }
+@keyframes dialog-in { from { opacity: 0; transform: translateY(6px) scale(.98); } to { opacity: 1; transform: none; } }
+
+/* ---- Field flagged by a failed submit ---- */
+.field-flash { animation: field-flash 1.2s ease-out; }
+@keyframes field-flash { 0%, 40% { box-shadow: 0 0 0 4px rgb(201 59 59 / 0.35); } 100% { box-shadow: none; } }

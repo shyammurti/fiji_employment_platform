@@ -1,7 +1,6 @@
-<x-app-layout :title="$job->title">
+<x-app-layout :title="$job->title" :breadcrumbs="[['Browse jobs', route('jobs.index')], [$job->title]]" help="faq-how-do-i-apply">
     <x-slot name="header">
-        <a href="{{ route('jobs.index') }}" class="link text-sm"><span aria-hidden="true">&larr;</span> Back to jobs</a>
-        <h1 class="page-title mt-3">{{ $job->title }}</h1>
+        <h1 class="page-title">{{ $job->title }}</h1>
         <p class="mt-2 text-slate-600">{{ $job->company }}, {{ $job->location }}</p>
         <div class="mt-4 flex flex-wrap gap-2">
             <span class="status-pill bg-ocean-50 text-ocean-700">{{ $job->type }}</span>
@@ -64,7 +63,7 @@
                             <form method="POST" action="{{ route('jobs.apply', $job) }}" enctype="multipart/form-data" class="mt-4 space-y-4">
                                 @csrf
                                 <div>
-                                    <label for="resume" class="label">Resume or CV</label>
+                                    <label for="resume" class="label">Resume or CV <x-tip align="start">Upload a PDF, DOC or DOCX up to 5 MB. Only this employer and administrators can open it. You can build one in the Career Hub with Build my CV.</x-tip></label>
                                     <input id="resume" type="file" name="resume" required accept=".pdf,.doc,.docx" class="input" aria-describedby="resume-hint" @error('resume') aria-invalid="true" @enderror>
                                     <p id="resume-hint" class="hint">PDF, DOC or DOCX, up to 5&nbsp;MB.</p>
                                     <x-field-error name="resume" />
@@ -91,7 +90,7 @@
             @if ($match)
                 <div class="card">
                     <div class="flex items-baseline justify-between">
-                        <h2 class="font-semibold text-fiji-900">Your skill match</h2>
+                        <h2 class="flex items-center gap-1 font-semibold text-fiji-900">Your skill match <x-tip label="How skill match is calculated">The share of this job's required skills found on your profile. Skills are matched ignoring capitals and spaces. Add any missing skills you genuinely have to improve your match.</x-tip></h2>
                         <p class="text-2xl font-bold tabular-nums {{ $match['score'] >= 70 ? 'text-success-700' : ($match['score'] >= 40 ? 'text-amber-800' : 'text-slate-700') }}">{{ $match['score'] }}%</p>
                     </div>
                     @if ($match['matched'])

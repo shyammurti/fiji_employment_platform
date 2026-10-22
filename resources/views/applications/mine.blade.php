@@ -1,7 +1,7 @@
-<x-app-layout title="My applications">
+<x-app-layout title="My applications" :breadcrumbs="['dashboard', ['My applications']]" help="faq-where-can-i-track-an-application">
     <x-slot name="header">
         <h1 class="page-title">My applications</h1>
-        <p class="page-intro">Follow each application from Submitted to a final outcome. You are notified whenever an employer changes its status.</p>
+        <p class="page-intro">Follow each application from Submitted to a final outcome. You are notified whenever an employer changes its status. <x-tip label="What the stages mean">Submitted: received. Under Review: the employer is reading it. Shortlisted: you are on the shortlist. Interview Scheduled: see the date and time on the card. Hired or Rejected: the final outcome. The coloured bar shows how far your application got.</x-tip></p>
     </x-slot>
 
     @php($stages = ['Submitted', 'Under Review', 'Shortlisted', 'Interview Scheduled', 'Hired'])

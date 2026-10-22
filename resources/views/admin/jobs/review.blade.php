@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout :title="'Review: '.$job->title" :breadcrumbs="['dashboard', ['Job listings', route('admin.jobs.pending')], ['Review: '.$job->title]]" help="faq-what-should-i-review-before-approval">
     <x-slot name="header">
         <div class="flex flex-wrap items-center justify-between gap-3">
             <div><h1 class="page-title">Review Job Listing</h1><p class="text-sm text-slate-500">Review the full submission before making a decision.</p></div>
@@ -59,18 +59,18 @@
                         @csrf @method('PATCH')
                         <label for="reject-comments" class="label">Reason for rejection</label>
                         <textarea id="reject-comments" name="admin_notes" required maxlength="2000" rows="3" class="input">{{ old('admin_notes') }}</textarea>
-                        <button class="btn-secondary text-red-700">Reject with comments</button>
+                        <button class="btn-danger-soft">Reject with comments</button>
                     </form>
                 </div>
             @endif
             @if (! $job->is_archived)
-                <form method="POST" action="{{ route('admin.jobs.archive', $job) }}" class="card space-y-3" onsubmit="return confirm('Archive this listing and notify its employer and applicants? Application records will be preserved.');">
+                <form method="POST" action="{{ route('admin.jobs.archive', $job) }}" class="card space-y-3" data-confirm="The listing is removed from the job board and the employer and every applicant are notified with your reason. Application records are kept." data-confirm-title="Archive this listing?" data-confirm-button="Archive and notify" data-confirm-tone="danger">
                     @csrf @method('PATCH')
                     <h3 class="font-semibold text-slate-900">Withdraw listing</h3>
                     <p class="text-sm text-slate-500">Archive unavailable or unsuitable vacancies. Applicants keep their application history and receive your explanation.</p>
                     <label for="closure-reason" class="label">Reason sent to the employer and applicants</label>
                     <textarea id="closure-reason" name="closure_reason" required maxlength="1000" rows="3" class="input">{{ old('closure_reason') }}</textarea>
-                    <button class="btn-secondary text-red-700">Archive and notify</button>
+                    <button class="btn-danger-soft">Archive and notify</button>
                 </form>
             @endif
         </div>

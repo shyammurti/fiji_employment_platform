@@ -1,4 +1,4 @@
-<x-app-layout title="Employer approvals">
+<x-app-layout title="Employer approvals" :breadcrumbs="['dashboard', ['Employer approvals']]" help="faq-what-should-i-review-before-approval">
     <x-slot name="header">
         <h1 class="page-title">Employer approvals</h1>
         <p class="page-intro">Check each business's details and registration certificate, then approve, reject with a reason, or ask for more information.</p>
@@ -36,7 +36,7 @@
                         <button type="submit" class="btn-primary" @disabled(! $employer->business_document_path) @if(! $employer->business_document_path) title="A registration certificate is required before approval" @endif>Approve</button>
                     </form>
                     <button type="button" class="btn-secondary" @click="action = action === 'info' ? null : 'info'" :aria-expanded="action === 'info'">Request information</button>
-                    <button type="button" class="btn-secondary text-red-700" @click="action = action === 'reject' ? null : 'reject'" :aria-expanded="action === 'reject'">Reject</button>
+                    <button type="button" class="btn-danger-soft" @click="action = action === 'reject' ? null : 'reject'" :aria-expanded="action === 'reject'">Reject</button>
                 </div>
 
                 <form x-show="action === 'info'" x-cloak method="POST" action="{{ route('admin.governance.requestInfo') }}" class="mt-4 space-y-2">

@@ -1,4 +1,4 @@
-<x-app-layout title="Your profile">
+<x-app-layout title="Your profile" :breadcrumbs="['dashboard', ['Your profile']]" :help="$user->isJobseeker() ? 'faq-how-do-i-complete-my-jobseeker-profile' : ($user->isEmployer() ? 'employers' : ($user->isMentor() ? 'faq-how-do-i-become-a-mentor' : 'account'))">
     <x-slot name="header">
         <div class="flex flex-wrap items-center gap-3">
             <h1 class="page-title">Your profile</h1>
@@ -78,7 +78,7 @@
                     <h2 id="background-title" class="text-lg font-semibold text-fiji-900">Background</h2>
                     <div class="mt-5 grid gap-4 sm:grid-cols-2">
                         <div>
-                            <label for="qualification_level" class="label">Highest qualification</label>
+                            <label for="qualification_level" class="label">Highest qualification <x-tip align="start">Employers can filter candidates by this level, and it appears in the CV the Career Hub builds for you.</x-tip></label>
                             <select name="qualification_level" required class="input" id="qualification_level" @error('qualification_level') aria-invalid="true" aria-describedby="qualification_level-error" @enderror>
                                 <option value="">Select level</option>
                                 @foreach (['Certificate', 'Diploma', 'Bachelor', 'Postgraduate'] as $level)
@@ -102,7 +102,7 @@
                 </section>
 
                 <section class="card" aria-labelledby="skills-title">
-                    <h2 id="skills-title" class="text-lg font-semibold text-fiji-900">Skills</h2>
+                    <h2 id="skills-title" class="flex items-center gap-1 text-lg font-semibold text-fiji-900">Skills <x-tip align="start">Select skills from the list or type your own and press Enter. Your skill match score for each job compares these skills with the job's required skills.</x-tip></h2>
                     <p class="hint">Choose from the list or add your own. These tags power skill matching against job listings.</p>
 
                     <div class="mt-4 min-h-12 rounded-xl border border-dashed border-slate-300 p-3" aria-live="polite">
@@ -144,7 +144,7 @@
 
                 <section class="card" aria-labelledby="credential-title">
                     <div class="flex flex-wrap items-center justify-between gap-3">
-                        <h2 id="credential-title" class="text-lg font-semibold text-fiji-900">Academic credential</h2>
+                        <h2 id="credential-title" class="flex items-center gap-1 text-lg font-semibold text-fiji-900">Academic credential <x-tip align="start">Pending: waiting for an administrator. Verified: approved, and employers see a Verified badge. Rejected or More information: read the reviewer comment and upload a corrected document.</x-tip></h2>
                         <span class="status-pill {{ $user->is_verified ? 'bg-success-100 text-success-700' : 'bg-amber-100 text-amber-800' }}">{{ str($user->credential_status)->replace('_', ' ')->title() }}</span>
                     </div>
                     @if($user->credential_notes)<div class="mt-3 rounded-xl bg-amber-50 p-3 text-sm text-amber-900"><strong>Reviewer comment:</strong> {{ $user->credential_notes }}</div>@endif
@@ -190,7 +190,7 @@
         <section class="card border-red-200" aria-labelledby="delete-title">
             <h2 id="delete-title" class="text-lg font-semibold text-red-800">Delete account</h2>
             <p class="mt-1 max-w-2xl text-sm text-slate-600">Confirm your password to permanently remove your account and uploaded files. Accounts with shared application or mentorship records cannot be deleted here, so other participants keep their history.</p>
-            <form method="POST" action="{{ route('profile.destroy') }}" class="mt-4 flex flex-col gap-3 sm:flex-row sm:items-end" onsubmit="return confirm('Permanently delete your account? This cannot be undone.');">
+            <form method="POST" action="{{ route('profile.destroy') }}" class="mt-4 flex flex-col gap-3 sm:flex-row sm:items-end" data-confirm="Your account and uploaded files will be permanently removed. This cannot be undone." data-confirm-title="Delete your account?" data-confirm-button="Delete my account" data-confirm-tone="danger">
                 @csrf
                 @method('DELETE')
                 <div class="flex-1 sm:max-w-sm">

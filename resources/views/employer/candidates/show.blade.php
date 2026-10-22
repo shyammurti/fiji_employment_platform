@@ -1,7 +1,6 @@
-<x-app-layout :title="$candidate->name">
+<x-app-layout :title="$candidate->name" :breadcrumbs="['dashboard', ['Candidates', route('employer.candidates.index')], [$candidate->name]]" help="faq-can-i-find-candidates-without-an-application">
     <x-slot name="header">
-        <a href="{{ route('employer.candidates.index') }}" class="link text-sm"><span aria-hidden="true">&larr;</span> Back to candidates</a>
-        <div class="mt-3 flex flex-wrap items-center gap-3">
+        <div class="flex flex-wrap items-center gap-3">
             <h1 class="page-title">{{ $candidate->name }}</h1>
             @if ($candidate->is_verified)<span class="badge-verified">Verified credential</span>@endif
         </div>

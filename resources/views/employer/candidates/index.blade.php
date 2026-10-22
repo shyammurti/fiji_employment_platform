@@ -1,4 +1,4 @@
-<x-app-layout title="Find candidates">
+<x-app-layout title="Find candidates" :breadcrumbs="['dashboard', ['Candidates']]" help="faq-can-i-find-candidates-without-an-application">
     <x-slot name="header">
         <h1 class="page-title">Find candidates</h1>
         <p class="page-intro">Search jobseeker profiles by skill, qualification, region and experience. Verified candidates are listed first.</p>
@@ -6,7 +6,7 @@
 
     <form method="GET" role="search" class="card mb-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-            <label for="filter-skill" class="label">Skill</label>
+            <label for="filter-skill" class="label">Skill <x-tip align="start">Type part of a skill, such as Excel or Customer. Suggestions come from the platform skill list, and matching ignores capitals.</x-tip></label>
             <input id="filter-skill" type="search" name="skill" value="{{ $filters['skill'] ?? '' }}" placeholder="e.g. Excel…" list="skill-options" autocomplete="off" class="input">
             <datalist id="skill-options">@foreach (\App\Support\SkillCatalog::all() as $skill)<option value="{{ $skill }}">@endforeach</datalist>
         </div>
@@ -33,7 +33,7 @@
             <input id="filter-experience" type="number" min="0" max="60" inputmode="numeric" name="min_experience" value="{{ $filters['min_experience'] ?? '' }}" class="input">
         </div>
         <div class="flex flex-wrap items-center gap-4 sm:col-span-2 lg:col-span-4">
-            <label class="flex items-center gap-2 text-sm text-slate-700"><input type="checkbox" name="verified_only" value="1" class="rounded text-ocean-700" @checked(! empty($filters['verified_only']))> Verified credentials only</label>
+            <label class="flex items-center gap-2 text-sm text-slate-700"><input type="checkbox" name="verified_only" value="1" class="rounded text-ocean-700" @checked(! empty($filters['verified_only']))> Verified credentials only <x-tip align="start">Only show candidates whose academic credential an administrator has checked and approved.</x-tip></label>
             <div class="ml-auto flex gap-2">
                 @if (array_filter($filters))<a href="{{ route('employer.candidates.index') }}" class="btn-secondary">Clear filters</a>@endif
                 <button type="submit" class="btn-primary">Search candidates</button>

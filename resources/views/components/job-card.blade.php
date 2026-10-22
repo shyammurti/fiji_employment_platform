@@ -12,7 +12,7 @@
     @if ($score !== null)
         <div class="mt-4 border-t border-slate-100 pt-3">
             <div class="flex items-center justify-between text-xs font-semibold">
-                <span class="text-slate-600">Your skill match</span>
+                <span class="text-slate-600" title="Share of this job's required skills that are on your profile">Your skill match</span>
                 <span class="tabular-nums {{ $score >= 70 ? 'text-success-700' : ($score >= 40 ? 'text-amber-800' : 'text-slate-600') }}">{{ $score }}%</span>
             </div>
             <div class="mt-1.5 h-1.5 overflow-hidden rounded-full bg-slate-100" role="presentation">

@@ -1,4 +1,4 @@
-<x-app-layout title="Admin dashboard">
+<x-app-layout title="Admin dashboard" :breadcrumbs="[['Admin dashboard']]" help="admin">
     <x-slot name="header">
         <h1 class="page-title">Admin dashboard</h1>
         <p class="page-intro">Platform activity, user counts and everything waiting for a decision.</p>

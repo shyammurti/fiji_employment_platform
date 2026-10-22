@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout title="Job listings" :breadcrumbs="['dashboard', ['Job listings']]" help="faq-what-should-i-review-before-approval">
     <x-slot name="header"><h1 class="page-title">Job Listing Moderation</h1></x-slot>
     <nav aria-label="Listing status" class="mb-6 flex flex-wrap gap-2">
         @foreach (['pending_approval' => 'Pending review', 'changes_requested' => 'Changes requested', 'approved' => 'Approved', 'rejected' => 'Rejected', 'archived' => 'Archived', 'all' => 'All listings'] as $value => $label)

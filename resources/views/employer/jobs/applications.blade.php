@@ -1,7 +1,6 @@
-<x-app-layout :title="'Applications: '.$job->title">
+<x-app-layout :title="'Applications: '.$job->title" :breadcrumbs="['dashboard', ['My listings', route('employer.jobs.index')], [$job->title]]" help="faq-how-do-i-finish-recruitment">
     <x-slot name="header">
-        <a href="{{ route('employer.jobs.index') }}" class="link text-sm"><span aria-hidden="true">&larr;</span> My listings</a>
-        <h1 class="page-title mt-3">Applications for {{ $job->title }}</h1>
+        <h1 class="page-title">Applications for {{ $job->title }}</h1>
         <p class="page-intro">Sorted by skill match. Changing a status or interview time notifies the applicant by email and in-app.</p>
     </x-slot>
 
@@ -50,7 +49,7 @@
                     <input type="hidden" name="application_id" value="{{ $app->id }}">
                     <div class="grid gap-3 sm:grid-cols-2">
                         <div>
-                            <label for="status-{{ $app->id }}" class="label">Status</label>
+                            <label for="status-{{ $app->id }}" class="label">Status <x-tip align="start">Changing the status or interview time emails and notifies the applicant, and adds a step to their status history. Choose Interview Scheduled to set a date and time.</x-tip></label>
                             <select id="status-{{ $app->id }}" name="status" class="input" x-model="status">
                                 @foreach (\App\Models\JobApplication::STATUSES as $status)
                                     <option value="{{ $status }}">{{ $status }}</option>
@@ -63,7 +62,7 @@
                         </div>
                     </div>
                     <div>
-                        <label for="notes-{{ $app->id }}" class="label">Internal notes <span class="font-normal text-slate-600">(not shared with the applicant)</span></label>
+                        <label for="notes-{{ $app->id }}" class="label">Internal notes <span class="font-normal text-slate-600">(not shared with the applicant)</span> <x-tip align="end">Private notes for your hiring team. Saving only notes does not notify the applicant.</x-tip></label>
                         <textarea id="notes-{{ $app->id }}" name="employer_notes" rows="2" maxlength="2000" class="input">{{ $app->employer_notes }}</textarea>
                     </div>
                     <button type="submit" class="btn-primary">Save</button>

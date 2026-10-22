@@ -1,5 +1,5 @@
 @props(['code', 'title', 'message', 'icon' => 'info'])
-<x-app-layout :title="$title">
+<x-app-layout :title="$title" :breadcrumbs="[[$title]]" help="account">
     <section class="mx-auto max-w-xl py-12 text-center" aria-labelledby="error-title">
         <span class="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-ocean-50 text-ocean-700" aria-hidden="true">
             @if ($icon === 'removed')

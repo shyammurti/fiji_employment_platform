@@ -1,4 +1,4 @@
-<x-app-layout title="Register as an employer">
+<x-app-layout title="Register as an employer" :breadcrumbs="['dashboard', ['Register as an employer']]" help="faq-when-can-i-access-employer-functions">
     <x-slot name="header">
         <h1 class="page-title">Register as an employer</h1>
         <p class="page-intro">An administrator checks your business details and registration certificate before you can post vacancies or search candidates. Reviews usually take 1 to 2 business days.</p>

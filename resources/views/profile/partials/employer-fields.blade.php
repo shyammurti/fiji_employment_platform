@@ -20,7 +20,7 @@
         <x-field-error name="industry_sector" />
     </div>
     <div>
-        <label for="business_registration_number" class="label">Business registration number</label>
+        <label for="business_registration_number" class="label">Business registration number <x-tip align="start">The number on your certificate from the Registrar of Companies. Letters, numbers, spaces, dashes and slashes only.</x-tip></label>
         <input id="business_registration_number" name="business_registration_number" {!! $req !!} maxlength="100" spellcheck="false" value="{{ old('business_registration_number', $user?->business_registration_number) }}" class="input" placeholder="e.g. BN-2024-001234…">
         <x-field-error name="business_registration_number" />
     </div>
@@ -40,7 +40,7 @@
         <x-field-error name="company_description" />
     </div>
     <div class="sm:col-span-2">
-        <label for="business_document" class="label">Business registration certificate</label>
+        <label for="business_document" class="label">Business registration certificate <x-tip align="start">A scan or photo of your current registration certificate. Administrators use it to confirm your business is real before approving your account.</x-tip></label>
         @if ($user?->business_document_path)
             <p class="mt-1 text-sm text-slate-600">On file: <a href="{{ route('employers.document', $user) }}" target="_blank" rel="noopener" class="link">{{ $user->business_document_name ?? 'certificate' }}</a>. Upload a new file only to replace it.</p>
         @endif

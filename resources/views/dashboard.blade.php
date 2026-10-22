@@ -1,4 +1,4 @@
-<x-app-layout title="Dashboard">
+<x-app-layout title="Dashboard" :breadcrumbs="[['Dashboard']]" help="account">
     <x-slot name="header">
         <p class="eyebrow">{{ ucfirst($user->role) }} workspace</p>
         <h1 class="page-title mt-2">Welcome back, {{ $user->name }}</h1>
@@ -19,7 +19,7 @@
         @if ($done < count($checklist))
             <section class="card mb-6" aria-labelledby="checklist-title">
                 <div class="flex flex-wrap items-center justify-between gap-3">
-                    <h2 id="checklist-title" class="text-lg font-semibold text-fiji-900">Complete your profile</h2>
+                    <h2 id="checklist-title" class="flex items-center gap-1 text-lg font-semibold text-fiji-900">Complete your profile <x-tip align="start">Employers search these details and the matching engine uses your skills. A verified credential shows a Verified badge to employers.</x-tip></h2>
                     <p class="text-sm font-semibold tabular-nums text-slate-700">{{ $done }} of {{ count($checklist) }} done</p>
                 </div>
                 <div class="mt-3 h-2 overflow-hidden rounded-full bg-slate-100" role="progressbar" aria-valuemin="0" aria-valuemax="{{ count($checklist) }}" aria-valuenow="{{ $done }}" aria-labelledby="checklist-title">
@@ -80,7 +80,7 @@
         <section class="mt-8" aria-labelledby="recommended-title">
             <div class="mb-4 flex items-end justify-between gap-4">
                 <div>
-                    <h2 id="recommended-title" class="text-lg font-semibold text-fiji-900">Recommended for you</h2>
+                    <h2 id="recommended-title" class="flex items-center gap-1 text-lg font-semibold text-fiji-900">Recommended for you <x-tip align="start">Open vacancies you have not applied to yet, sorted by how many of their required skills are on your profile.</x-tip></h2>
                     <p class="text-sm text-slate-600">Open vacancies ranked by how many of their required skills you already have.</p>
                 </div>
                 <a href="{{ route('jobs.index') }}" class="link shrink-0 text-sm">All jobs</a>

@@ -18,9 +18,13 @@
     </div>
     <main class="auth-shell mx-auto my-10 rounded-3xl border border-slate-200 bg-surface p-6 shadow-pop sm:p-10">
         @if (isset($errors) && $errors->any())
-            <div role="alert" class="alert-error">
-                <p class="mb-2 font-semibold">Please check the following:</p>
-                <ul class="list-inside list-disc">@foreach ($errors->all() as $error)<li>{{ $error }}</li>@endforeach</ul>
+            <div role="alert" class="alert-error" data-error-summary data-error-fields="{{ implode(',', $errors->keys()) }}">
+                <p class="font-semibold">{{ $errors->count() === 1 ? 'One thing needs fixing' : $errors->count().' things need fixing' }} before you can continue.</p>
+                <ul class="mt-2 list-inside list-disc space-y-0.5">
+                    @foreach ($errors->messages() as $field => $messages)
+                        @foreach ($messages as $message)<li><button type="button" class="text-left underline decoration-red-300 underline-offset-2 hover:decoration-current" data-error-for="{{ $field }}">{{ $message }}</button></li>@endforeach
+                    @endforeach
+                </ul>
             </div>
         @endif
         {{ $slot }}
