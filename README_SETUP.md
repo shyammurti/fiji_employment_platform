@@ -1,3 +1,17 @@
+# Fiji Employment & Skill-Matching Platform
+
+IS314 Computing Project, Group 14 (Semester 2, 2026).
+
+## Team and contributions
+
+| Student name | Student ID | Contribution |
+|---|---|---|
+| Shyam Murti (Leader) | S11229913 | Coding for AI Chatbot and Mentorship module, including career guidance, chatbot responses and mentorship functions. |
+| Maimuna Nisha | S11229653 | Coding for Admin Governance and Verification module, including admin dashboard, employer approvals and credential verification. |
+| Sameet Singh | S11231364 | Coding for Student Profile module, including profile editing, document management and verification status features. |
+| Hritish Pawar | S11219177 | Coding for Employer Portal, including vacancy editing, application review and interview scheduling features. |
+| Ammara Dean | S11220213 | Coding for Application Tracking and Skill Matching module, including application submission, status tracking and skill matching. |
+
 ## Prerequisites
 
 - PHP 8.3+
