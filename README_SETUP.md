@@ -4,13 +4,15 @@ IS314 Computing Project, Group 14 (Semester 2, 2026).
 
 ## Team and contributions
 
-| Student name | Student ID | Contribution |
-|---|---|---|
-| Shyam Murti (Leader) | S11229913 | Coding for AI Chatbot and Mentorship module, including career guidance, chatbot responses and mentorship functions. |
-| Maimuna Nisha | S11229653 | Coding for Admin Governance and Verification module, including admin dashboard, employer approvals and credential verification. |
-| Sameet Singh | S11231364 | Coding for Student Profile module, including profile editing, document management and verification status features. |
-| Hritish Pawar | S11219177 | Coding for Employer Portal, including vacancy editing, application review and interview scheduling features. |
-| Ammara Dean | S11220213 | Coding for Application Tracking and Skill Matching module, including application submission, status tracking and skill matching. |
+| Student name | Student ID | Module | Contribution |
+|---|---|---|---|
+| Shyam Murti (Leader) | S11229913 | M3 – AI Chatbot & Mentorship Engine | Coding for the AI Chatbot and Mentorship module, including the Career Hub chatbot (career guidance, CV assistance and interview practice), chatbot responses, and mentorship session booking and feedback. |
+| Maimuna Nisha | S11229653 | M5 – Admin Governance & Verification Dashboard | Coding for the Admin Governance and Verification module, including the admin dashboard, employer approvals, job listing moderation, credential verification and the request-information system. |
+| Sameet Singh | S11231364 | M1 – Jobseeker Profile & Verification | Coding for the Student (Jobseeker) Profile module, including registration, profile editing, credential and document upload, skill tagging and the verification status badge. |
+| Hritish Pawar | S11219177 | M2 – Employer Portal | Coding for the Employer Portal, including employer registration, job posting, vacancy editing, closing and archiving, candidate search, application review and interview scheduling. |
+| Ammara Dean | S11220213 | M4 – Application Tracking & Skill Matching Engine | Coding for the Application Tracking and Skill Matching module, including application submission, skill match percentage, status tracking from Submitted to Hired, and application update notifications. |
+
+What each module contains is listed under [What's implemented per module](#whats-implemented-per-module).
 
 ## Prerequisites
 
@@ -37,7 +39,7 @@ php artisan key:generate
 Edit `.env` and set your MySQL credentials. Create the database:
 
 ```sql
-CREATE DATABASE fiji_employment_platform;
+CREATE DATABASE fiji_employment_platform_v2;
 ```
 
 ## 3. Migrate & seed demo data
@@ -101,7 +103,7 @@ Visit `http://localhost:8000`.
 
 ## Active AI configuration
 
-The authenticated Career Hub uses handleMessage() for intent detection, server-owned history, model responses and saved timestamps. Ollama is the default provider, so to run (test) the AI chatbot you need to install Ollama and llama3.2 so the configration matches and the chatbot works while testing.
+The authenticated Career Hub uses handleMessage() for intent detection, server-owned history, model responses and saved timestamps. Ollama is the default provider, so to run (test) the AI chatbot you need to install Ollama and llama3.2 so the configuration matches and the chatbot works while testing.
 
 ## Running the tests
 
@@ -113,6 +115,8 @@ php -d extension=pdo_sqlite -d extension=sqlite3 vendor/bin/phpunit
 ```
 
 See `FR_AUDIT.md` for the functional-requirement audit against the SRS and SAD.
+
+SQLite was used for a while when we encountered a problem with XAMPP, but we switched back to MySQL as soon as it was resolved. The app itself runs on MySQL; only the automated tests use SQLite.
 
 ## Email
 
@@ -135,11 +139,11 @@ then run `php artisan config:clear`. Gmail requires an App Password (Google Acco
 - Seeded demo accounts use `@example.com`, a reserved domain, so they are never emailed. Register with a real address to receive emails.
 - If the mail server is unavailable, the action still succeeds and the error is logged.
 
-## Career Hub assistant speed
+## Career Hub assistant
 
 Replies stream word by word. The page warms the model up when it opens and Ollama keeps it loaded for 30 minutes,
 so only the first question after a long pause waits for the model to load. Ollama runs on the CPU unless a supported GPU
-is available; for faster replies on a CPU you can use a smaller model:
+is available; for faster replies on a CPU you can use a smaller model, but this model was perfect for our assignment:
 
 ```bash
 ollama pull llama3.2:1b
@@ -147,7 +151,9 @@ ollama pull llama3.2:1b
 
 and set `OLLAMA_MODEL=llama3.2:1b` in `.env`.
 
-## Going live for testers (free)
+## Going live for testers
+
+This was implemented for user acceptance testing (UAT): we shared the live link with friends to get their views.
 
 The site can be shared over the internet from this PC with a free Cloudflare Tunnel (no account needed).
 
@@ -168,8 +174,3 @@ npm run live
 
 3. Share the `https://<random-words>.trycloudflare.com` address it prints. Keep the window open; press **Ctrl+C** to take the site offline.
 
-Notes:
-- The address changes every time you run `npm run live`, so send testers the new link each time. It can take up to a minute before a new address starts working.
-- The live site runs with debug pages switched off and 4 PHP workers behind a small load balancer (`scripts/go-live.mjs`), so one tester waiting on a long chatbot reply does not freeze the site for others. Set `WORKERS=6` before the command for more.
-- Links in emails sent during live testing point to the public address automatically.
-- The two admin accounts no longer use the demo password. Demo jobseeker, employer and mentor accounts still use `password`; testers can also register their own accounts.
