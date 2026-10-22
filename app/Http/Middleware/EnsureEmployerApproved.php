@@ -11,6 +11,8 @@ use Symfony\Component\HttpFoundation\Response;
  * AND employer_approval_status=approved (set by an Admin via the
  * Governance panel, FR2.1 / FR5.2) before they can post jobs or manage
  * applications.
+ *
+ * Module M2 Employer Portal, developed by Hritish Pawar (S11219177).
  */
 class EnsureEmployerApproved
 {

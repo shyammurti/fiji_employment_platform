@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 /**
  * One step in an application's progress (FR4.5). Rows are written by
  * JobApplication model events, so every create/update path is covered.
+ *
+ * Module M4 Application Tracking & Skill Matching, developed by Ammara Dean (S11220213).
  */
 class ApplicationStatusChange extends Model
 {

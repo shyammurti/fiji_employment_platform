@@ -1,3 +1,4 @@
+{{-- Module M1 Jobseeker Profile & Verification, developed by Sameet Singh (S11231364). --}}
 <x-app-layout title="Your profile" :breadcrumbs="['dashboard', ['Your profile']]" :help="$user->isJobseeker() ? 'faq-how-do-i-complete-my-jobseeker-profile' : ($user->isEmployer() ? 'employers' : ($user->isMentor() ? 'faq-how-do-i-become-a-mentor' : 'account'))">
     <x-slot name="header">
         <div class="flex flex-wrap items-center gap-3">

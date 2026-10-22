@@ -1,3 +1,4 @@
+{{-- Module M5 Admin Governance & Verification, developed by Maimuna Nisha (S11229653). --}}
 <x-app-layout title="Credential review" :breadcrumbs="['dashboard', ['Credential review']]" help="faq-how-do-i-review-credentials">
 <x-slot name="header"><h1 class="page-title">Credential review</h1><p class="page-intro">Review the submitted document, record a clear decision and explain what happens next.</p></x-slot>
 <div class="mb-6 flex flex-wrap gap-2">@foreach(['' => 'All submissions', 'pending' => 'Pending', 'verified' => 'Verified', 'rejected' => 'Rejected', 'changes_requested' => 'More information'] as $value => $label)<a href="{{ route('admin.verifications.index', ['status' => $value]) }}" class="{{ $filter === $value ? 'btn-primary' : 'btn-secondary' }}">{{ $label }}</a>@endforeach</div>

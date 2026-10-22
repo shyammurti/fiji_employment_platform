@@ -14,6 +14,8 @@ use Illuminate\Support\Str;
  * Matching is case-insensitive and tolerant of minor formatting differences
  * (e.g. "PHP", "php", " Php ") so the score reflects genuine overlap rather
  * than exact-string coincidence.
+ *
+ * Module M4 Application Tracking & Skill Matching, developed by Ammara Dean (S11220213).
  */
 class SkillMatchService
 {

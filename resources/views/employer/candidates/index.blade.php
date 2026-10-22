@@ -1,3 +1,4 @@
+{{-- Module M2 Employer Portal, developed by Hritish Pawar (S11219177). --}}
 <x-app-layout title="Find candidates" :breadcrumbs="['dashboard', ['Candidates']]" help="faq-can-i-find-candidates-without-an-application">
     <x-slot name="header">
         <h1 class="page-title">Find candidates</h1>

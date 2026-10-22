@@ -5,6 +5,9 @@ namespace App\Rules;
 use Closure;
 use Illuminate\Contracts\Validation\ValidationRule;
 
+/**
+ * Module M1 Jobseeker Profile & Verification, developed by Sameet Singh (S11231364).
+ */
 class EmailAddress implements ValidationRule
 {
     public function __construct(private readonly bool $confirmedDomain = false) {}

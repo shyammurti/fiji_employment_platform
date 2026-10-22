@@ -1,3 +1,4 @@
+{{-- Module M4 Application Tracking & Skill Matching, developed by Ammara Dean (S11220213). --}}
 <x-app-layout title="My applications" :breadcrumbs="['dashboard', ['My applications']]" help="faq-where-can-i-track-an-application">
     <x-slot name="header">
         <h1 class="page-title">My applications</h1>

@@ -6,6 +6,9 @@ use App\Models\MentorshipSession;
 use Illuminate\Notifications\Notification;
 use Illuminate\Notifications\Messages\MailMessage;
 
+/**
+ * Module M3 AI Chatbot & Mentorship, developed by Shyam Murti (S11229913).
+ */
 class MentorshipSessionUpdated extends Notification
 {
     public function __construct(public MentorshipSession $session)

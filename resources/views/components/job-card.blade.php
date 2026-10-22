@@ -1,3 +1,4 @@
+{{-- Module M4 Application Tracking & Skill Matching, developed by Ammara Dean (S11220213). --}}
 @props(['job', 'score' => null])
 <a href="{{ route('jobs.show', $job) }}" {{ $attributes->merge(['class' => 'card-link flex h-full flex-col']) }}>
     <div class="flex items-start justify-between gap-3">

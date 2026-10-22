@@ -1,3 +1,4 @@
+{{-- Module M5 Admin Governance & Verification, developed by Maimuna Nisha (S11229653). --}}
 <x-app-layout :title="'Review: '.$job->title" :breadcrumbs="['dashboard', ['Job listings', route('admin.jobs.pending')], ['Review: '.$job->title]]" help="faq-what-should-i-review-before-approval">
     <x-slot name="header">
         <div class="flex flex-wrap items-center justify-between gap-3">

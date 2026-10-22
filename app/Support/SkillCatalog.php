@@ -6,6 +6,8 @@ namespace App\Support;
  * Predefined skill list for FR1.4. Jobseekers pick from these groups or
  * type a custom skill; employers see the same names when listing
  * requirements so the matching engine compares like with like.
+ *
+ * Module M1 Jobseeker Profile & Verification, developed by Sameet Singh (S11231364).
  */
 class SkillCatalog
 {

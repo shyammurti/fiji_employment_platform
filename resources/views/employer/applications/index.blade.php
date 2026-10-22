@@ -1,3 +1,4 @@
+{{-- Module M2 Employer Portal, developed by Hritish Pawar (S11219177). --}}
 <x-app-layout title="Applications" :breadcrumbs="['dashboard', ['Applications']]" help="employers">
     <x-slot name="header">
         <h1 class="page-title">All applications</h1><p class="page-intro">Every application across your listings, newest first.</p>

@@ -10,6 +10,8 @@ use Illuminate\Notifications\Messages\MailMessage;
  * Dispatched to a jobseeker when their application is scored with a
  * strong skill match (FR4.2: "...calculate a match score and notify
  * qualified candidates").
+ *
+ * Module M4 Application Tracking & Skill Matching, developed by Ammara Dean (S11220213).
  */
 class NewQualifiedMatch extends Notification
 {

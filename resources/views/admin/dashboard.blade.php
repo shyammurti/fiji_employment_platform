@@ -1,3 +1,4 @@
+{{-- Module M5 Admin Governance & Verification, developed by Maimuna Nisha (S11229653). --}}
 <x-app-layout title="Admin dashboard" :breadcrumbs="[['Admin dashboard']]" help="admin">
     <x-slot name="header">
         <h1 class="page-title">Admin dashboard</h1>

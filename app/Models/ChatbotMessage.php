@@ -5,6 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+/**
+ * Module M3 AI Chatbot & Mentorship, developed by Shyam Murti (S11229913).
+ */
 class ChatbotMessage extends Model
 {
     protected $fillable = ['user_id', 'chat_conversation_id', 'sender', 'message', 'intent'];

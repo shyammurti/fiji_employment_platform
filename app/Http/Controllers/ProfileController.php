@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
+/**
+ * Module M1 Jobseeker Profile & Verification, developed by Sameet Singh (S11231364).
+ */
 class ProfileController extends Controller
 {
     /**

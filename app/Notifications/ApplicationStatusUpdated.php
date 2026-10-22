@@ -6,6 +6,9 @@ use App\Models\JobApplication;
 use Illuminate\Notifications\Notification;
 use Illuminate\Notifications\Messages\MailMessage;
 
+/**
+ * Module M4 Application Tracking & Skill Matching, developed by Ammara Dean (S11220213).
+ */
 class ApplicationStatusUpdated extends Notification
 {
     public function __construct(public JobApplication $application)

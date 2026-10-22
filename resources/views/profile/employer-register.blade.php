@@ -1,3 +1,4 @@
+{{-- Module M2 Employer Portal, developed by Hritish Pawar (S11219177). --}}
 <x-app-layout title="Register as an employer" :breadcrumbs="['dashboard', ['Register as an employer']]" help="faq-when-can-i-access-employer-functions">
     <x-slot name="header">
         <h1 class="page-title">Register as an employer</h1>

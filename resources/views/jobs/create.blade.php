@@ -1,3 +1,4 @@
+{{-- Module M2 Employer Portal, developed by Hritish Pawar (S11219177). --}}
 <x-app-layout :title="$job->exists ? 'Edit listing' : 'Post a job'" :breadcrumbs="['dashboard', ['My listings', route('employer.jobs.index')], [$job->exists ? 'Edit listing' : 'Post a job']]" :help="$job->exists ? 'faq-how-do-i-correct-a-vacancy' : 'faq-how-do-i-publish-a-vacancy'">
     <x-slot name="header">
         <h1 class="page-title">{{ $job->exists ? 'Edit listing' : 'Post a job' }}</h1><p class="page-intro">Listings are reviewed by an administrator before they appear on the public job board.</p>

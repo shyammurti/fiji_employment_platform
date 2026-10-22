@@ -13,6 +13,9 @@ use Illuminate\View\View;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
+/**
+ * Module M2 Employer Portal, developed by Hritish Pawar (S11219177); Module M4 Application Tracking & Skill Matching, developed by Ammara Dean (S11220213).
+ */
 class JobListingController extends Controller
 {
     public function home(): View

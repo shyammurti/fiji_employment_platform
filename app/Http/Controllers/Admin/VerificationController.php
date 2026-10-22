@@ -14,6 +14,8 @@ use Illuminate\View\View;
 /**
  * FR5.4: Admin inspects uploaded degree/credential files and toggles
  * the is_verified flag that drives the green "Verified" badge (FR1.5).
+ *
+ * Module M5 Admin Governance & Verification, developed by Maimuna Nisha (S11229653).
  */
 class VerificationController extends Controller
 {

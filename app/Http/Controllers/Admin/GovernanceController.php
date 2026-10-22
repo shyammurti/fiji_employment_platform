@@ -16,6 +16,8 @@ use Illuminate\View\View;
 
 /**
  * M5: Admin Governance & Verification Dashboard (FR5.1-FR5.5, FR2.1, FR2.2).
+ *
+ * Module M5 Admin Governance & Verification, developed by Maimuna Nisha (S11229653).
  */
 class GovernanceController extends Controller
 {

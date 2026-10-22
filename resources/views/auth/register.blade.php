@@ -1,3 +1,4 @@
+{{-- Module M1 Jobseeker Profile & Verification, developed by Sameet Singh (S11231364). --}}
 <x-guest-layout title="Create account">
     <p class="eyebrow">Join the Fiji Employment Hub</p><h1 class="mt-2 text-3xl font-semibold tracking-tight">Your next chapter.</h1><p class="mb-6 mt-2 text-sm text-slate-600">Register with an email address or phone number. You can provide both.</p>
     <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data" class="space-y-4" x-data="{ role: {{ Illuminate\Support\Js::from(old('role', request('role', $registrationRole ?? 'jobseeker'))) }} }">

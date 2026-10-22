@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Storage;
  * Business details and proof of registration an employer must supply before
  * an administrator can approve the account (FR2.1 / M5 FR2). Shared by the
  * public registration form, the "Register as employer" form and the profile.
+ *
+ * Module M2 Employer Portal, developed by Hritish Pawar (S11219177).
  */
 class EmployerDetails
 {

@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
+/**
+ * Module M3 AI Chatbot & Mentorship, developed by Shyam Murti (S11229913).
+ */
 class ChatbotController extends Controller
 {
     /** Messages of context sent to the model. Fewer tokens = faster replies. */

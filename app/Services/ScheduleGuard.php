@@ -15,6 +15,8 @@ use Illuminate\Validation\ValidationException;
  * - A jobseeker cannot have two active sessions within the same hour, nor a
  *   session that clashes with a scheduled interview (and vice versa).
  * - Appointments must be at least an hour ahead and inside a booking window.
+ *
+ * Module M3 AI Chatbot & Mentorship, developed by Shyam Murti (S11229913); Module M2 Employer Portal, developed by Hritish Pawar (S11219177).
  */
 class ScheduleGuard
 {

@@ -1,0 +1,66 @@
+# Module ownership for Fiji Employment & Skill-Matching Platform (IS314 Group 14).
+# GitHub shows these owners on each file and requests their review on pull requests.
+
+# Project lead: shared platform code, layouts, configuration and tests
+* @shyammurti
+
+# M1 Jobseeker Profile & Verification: Sameet Singh (S11231364)
+/app/Http/Controllers/ProfileController.php @sameetsingh1
+/app/Http/Controllers/Auth/RegisteredUserController.php @sameetsingh1
+/app/Http/Controllers/DocumentController.php @sameetsingh1
+/app/Console/Commands/PrivatizeDocuments.php @sameetsingh1
+/app/Rules/EmailAddress.php @sameetsingh1
+/app/Support/PhoneNumber.php @sameetsingh1
+/app/Support/SkillCatalog.php @sameetsingh1
+/resources/views/profile/edit.blade.php @sameetsingh1
+/resources/views/auth/register.blade.php @sameetsingh1
+
+# M2 Employer Portal: Hritish Pawar (S11219177)
+/app/Http/Controllers/JobListingController.php @hritish-exe @ammarabytes
+/app/Http/Middleware/EnsureEmployerApproved.php @hritish-exe
+/app/Support/EmployerDetails.php @hritish-exe
+/app/Services/ListingLifecycleService.php @hritish-exe
+/resources/views/employer/applications/index.blade.php @hritish-exe
+/resources/views/employer/candidates/index.blade.php @hritish-exe
+/resources/views/employer/candidates/show.blade.php @hritish-exe
+/resources/views/employer/jobs/applications.blade.php @hritish-exe
+/resources/views/employer/jobs/index.blade.php @hritish-exe
+/resources/views/jobs/create.blade.php @hritish-exe
+/resources/views/profile/employer-register.blade.php @hritish-exe
+/resources/views/profile/partials/employer-fields.blade.php @hritish-exe
+
+# M3 AI Chatbot & Mentorship: Shyam Murti (S11229913)
+/app/Http/Controllers/ChatbotController.php @shyammurti
+/app/Models/ChatConversation.php @shyammurti
+/app/Models/ChatbotMessage.php @shyammurti
+/app/Models/MentorshipSession.php @shyammurti
+/app/Notifications/MentorshipSessionUpdated.php @shyammurti
+/app/Services/ScheduleGuard.php @shyammurti @hritish-exe
+/resources/views/career-hub.blade.php @shyammurti
+
+# M4 Application Tracking & Skill Matching: Ammara Dean (S11220213)
+/app/Http/Controllers/JobApplicationController.php @ammarabytes @hritish-exe @shyammurti
+/app/Services/SkillMatchService.php @ammarabytes
+/app/Services/JobMatchNotifier.php @ammarabytes
+/app/Models/JobApplication.php @ammarabytes
+/app/Models/ApplicationStatusChange.php @ammarabytes
+/app/Notifications/ApplicationStatusUpdated.php @ammarabytes
+/app/Notifications/NewQualifiedMatch.php @ammarabytes
+/resources/views/applications/mine.blade.php @ammarabytes
+/resources/views/jobs/index.blade.php @ammarabytes
+/resources/views/jobs/show.blade.php @ammarabytes
+/resources/views/components/job-card.blade.php @ammarabytes
+
+# M5 Admin Governance & Verification: Maimuna Nisha (S11229653)
+/app/Http/Controllers/Admin/GovernanceController.php @maimunanisha-commits
+/app/Http/Controllers/Admin/UserAccessController.php @maimunanisha-commits
+/app/Http/Controllers/Admin/VerificationController.php @maimunanisha-commits
+/app/Services/BackupService.php @maimunanisha-commits
+/app/Console/Commands/DatabaseBackup.php @maimunanisha-commits
+/app/Console/Commands/RestoreCheck.php @maimunanisha-commits
+/resources/views/admin/dashboard.blade.php @maimunanisha-commits
+/resources/views/admin/employers/pending.blade.php @maimunanisha-commits
+/resources/views/admin/jobs/pending.blade.php @maimunanisha-commits
+/resources/views/admin/jobs/review.blade.php @maimunanisha-commits
+/resources/views/admin/users/index.blade.php @maimunanisha-commits
+/resources/views/admin/verifications/index.blade.php @maimunanisha-commits

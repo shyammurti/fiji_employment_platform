@@ -16,6 +16,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\View\View;
 
+/**
+ * Module M4 Application Tracking & Skill Matching, developed by Ammara Dean (S11220213); Module M2 Employer Portal, developed by Hritish Pawar (S11219177); Module M3 AI Chatbot & Mentorship, developed by Shyam Murti (S11229913).
+ */
 class JobApplicationController extends Controller
 {
     public function __construct(private readonly SkillMatchService $matcher, private readonly ScheduleGuard $schedule)

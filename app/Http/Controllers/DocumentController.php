@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
+/**
+ * Module M1 Jobseeker Profile & Verification, developed by Sameet Singh (S11231364).
+ */
 class DocumentController extends Controller
 {
     public function resume(Request $request, JobApplication $application): StreamedResponse

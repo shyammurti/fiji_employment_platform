@@ -1,3 +1,4 @@
+{{-- Module M5 Admin Governance & Verification, developed by Maimuna Nisha (S11229653). --}}
 <x-app-layout title="Job listings" :breadcrumbs="['dashboard', ['Job listings']]" help="faq-what-should-i-review-before-approval">
     <x-slot name="header"><h1 class="page-title">Job Listing Moderation</h1></x-slot>
     <nav aria-label="Listing status" class="mb-6 flex flex-wrap gap-2">

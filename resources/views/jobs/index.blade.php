@@ -1,3 +1,4 @@
+{{-- Module M4 Application Tracking & Skill Matching, developed by Ammara Dean (S11220213). --}}
 <x-app-layout title="Browse jobs" :breadcrumbs="[['Browse jobs']]" help="jobs">
     <x-slot name="header">
         <h1 class="page-title">Find your next opportunity</h1>

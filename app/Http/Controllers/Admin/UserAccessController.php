@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\ValidationException;
 
+/**
+ * Module M5 Admin Governance & Verification, developed by Maimuna Nisha (S11229653).
+ */
 class UserAccessController extends Controller
 {
     public function index(Request $request)

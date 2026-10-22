@@ -1,3 +1,4 @@
+{{-- Module M5 Admin Governance & Verification, developed by Maimuna Nisha (S11229653). --}}
 <x-app-layout title="User access" :breadcrumbs="['dashboard', ['User access']]" help="faq-how-do-role-changes-work">
     <x-slot name="header"><h1 class="page-title">User access</h1><p class="page-intro">Manage platform roles. Changes are recorded and shared with the account holder.</p></x-slot>
     <form method="GET" class="card mb-6 flex flex-wrap items-end gap-3"><div class="min-w-0 flex-1"><label for="user-search" class="label">Find an account</label><input id="user-search" class="input" name="q" value="{{ request('q') }}" placeholder="Name or email"></div><button class="btn-primary">Search accounts</button></form>

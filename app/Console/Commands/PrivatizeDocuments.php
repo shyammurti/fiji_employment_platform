@@ -5,6 +5,9 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
 
+/**
+ * Module M1 Jobseeker Profile & Verification, developed by Sameet Singh (S11231364).
+ */
 class PrivatizeDocuments extends Command
 {
     protected $signature = 'documents:privatize';

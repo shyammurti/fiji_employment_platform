@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 
+/**
+ * Module M1 Jobseeker Profile & Verification, developed by Sameet Singh (S11231364).
+ */
 class RegisteredUserController extends Controller
 {
     public function create(Request $request): View

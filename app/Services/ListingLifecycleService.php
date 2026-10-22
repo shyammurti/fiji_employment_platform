@@ -7,6 +7,9 @@ use App\Notifications\ApplicationStatusUpdated;
 use App\Notifications\PlatformAlert;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * Module M2 Employer Portal, developed by Hritish Pawar (S11219177).
+ */
 class ListingLifecycleService
 {
     public function close(JobListing $listing, string $reason, bool $archive = false): bool

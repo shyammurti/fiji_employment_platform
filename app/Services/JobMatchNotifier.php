@@ -6,6 +6,9 @@ use App\Models\User;
 use App\Notifications\NewQualifiedMatch;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * Module M4 Application Tracking & Skill Matching, developed by Ammara Dean (S11220213).
+ */
 class JobMatchNotifier
 {
     public function notify(JobListing $listing): int

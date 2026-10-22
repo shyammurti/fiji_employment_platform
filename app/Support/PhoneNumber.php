@@ -1,6 +1,9 @@
 <?php
 namespace App\Support;
 
+/**
+ * Module M1 Jobseeker Profile & Verification, developed by Sameet Singh (S11231364).
+ */
 class PhoneNumber
 {
     public static function normalize(?string $value): ?string

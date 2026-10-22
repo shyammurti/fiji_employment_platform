@@ -1,3 +1,4 @@
+{{-- Module M2 Employer Portal, developed by Hritish Pawar (S11219177). --}}
 <x-app-layout title="My listings" :breadcrumbs="['dashboard', ['My listings']]" help="employers">
     <x-slot name="header">
         <div class="flex flex-wrap items-center justify-between gap-4">

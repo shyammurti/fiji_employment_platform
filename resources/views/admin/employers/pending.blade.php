@@ -1,3 +1,4 @@
+{{-- Module M5 Admin Governance & Verification, developed by Maimuna Nisha (S11229653). --}}
 <x-app-layout title="Employer approvals" :breadcrumbs="['dashboard', ['Employer approvals']]" help="faq-what-should-i-review-before-approval">
     <x-slot name="header">
         <h1 class="page-title">Employer approvals</h1>

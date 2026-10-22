@@ -1,3 +1,4 @@
+{{-- Module M2 Employer Portal, developed by Hritish Pawar (S11219177). --}}
 <x-app-layout :title="'Applications: '.$job->title" :breadcrumbs="['dashboard', ['My listings', route('employer.jobs.index')], [$job->title]]" help="faq-how-do-i-finish-recruitment">
     <x-slot name="header">
         <h1 class="page-title">Applications for {{ $job->title }}</h1>

@@ -1,3 +1,4 @@
+{{-- Module M3 AI Chatbot & Mentorship, developed by Shyam Murti (S11229913). --}}
 <x-app-layout title="Career Hub" :breadcrumbs="['dashboard', ['Career Hub']]" help="career">
 <x-slot name="header">
     <h1 class="page-title">Career Hub</h1>

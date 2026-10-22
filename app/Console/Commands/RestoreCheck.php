@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
+/**
+ * Module M5 Admin Governance & Verification, developed by Maimuna Nisha (S11229653).
+ */
 class RestoreCheck extends Command
 {
     protected $signature = 'backup:restore-check {snapshot : The backups/date-id returned by backup:run}';

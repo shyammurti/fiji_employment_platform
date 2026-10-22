@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 /**
  * One Career Hub chat session. Messages (REQ-4) belong to a conversation so
  * a jobseeker can start a new chat and return to earlier ones.
+ *
+ * Module M3 AI Chatbot & Mentorship, developed by Shyam Murti (S11229913).
  */
 class ChatConversation extends Model
 {

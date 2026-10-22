@@ -1,3 +1,4 @@
+{{-- Module M2 Employer Portal, developed by Hritish Pawar (S11219177). --}}
 {{--
     Business details an administrator reviews before approving an employer.
     $user: existing account (profile page) or null. $alpineRequired: only

@@ -1,3 +1,4 @@
+{{-- Module M4 Application Tracking & Skill Matching, developed by Ammara Dean (S11220213). --}}
 <x-app-layout :title="$job->title" :breadcrumbs="[['Browse jobs', route('jobs.index')], [$job->title]]" help="faq-how-do-i-apply">
     <x-slot name="header">
         <h1 class="page-title">{{ $job->title }}</h1>

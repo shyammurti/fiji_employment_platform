@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+/**
+ * Module M4 Application Tracking & Skill Matching, developed by Ammara Dean (S11220213).
+ */
 class JobApplication extends Model
 {
     use HasFactory;

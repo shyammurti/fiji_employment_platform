@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+/**
+ * Module M3 AI Chatbot & Mentorship, developed by Shyam Murti (S11229913).
+ */
 class MentorshipSession extends Model
 {
     use HasFactory;
